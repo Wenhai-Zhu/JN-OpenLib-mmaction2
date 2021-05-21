@@ -19,7 +19,6 @@ def bbox_target(pos_bboxes_list, neg_bboxes_list, gt_labels, cfg):
 
     assert len(pos_bboxes_list) == len(neg_bboxes_list) == len(gt_labels)
     length = len(pos_bboxes_list)
-
     for i in range(length):
         pos_bboxes = pos_bboxes_list[i]
         neg_bboxes = neg_bboxes_list[i]

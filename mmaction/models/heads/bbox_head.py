@@ -42,8 +42,8 @@ class BBoxHeadAVA(nn.Module):
             dropout_ratio=0,
             dropout_before_pool=True,
             topk=(3, 5),
-            multilabel=True):
-
+            multilabel=True,
+            loss_cfg = None):
         super(BBoxHeadAVA, self).__init__()
         assert temporal_pool_type in ['max', 'avg']
         assert spatial_pool_type in ['max', 'avg']
@@ -129,7 +129,7 @@ class BBoxHeadAVA(nn.Module):
         """
         correct = pred_vec & target_vec
         # Seems torch 1.5 has no auto type conversion
-        recall = correct.sum(1) / target_vec.sum(1).float()
+        recall = correct.sum(1) / (target_vec.sum(1).float()+ 1e-6)
         prec = correct.sum(1) / (pred_vec.sum(1) + 1e-6)
         return recall.mean(), prec.mean()
 
@@ -153,6 +153,7 @@ class BBoxHeadAVA(nn.Module):
             precs.append(prec_k)
         return recall_thr, prec_thr, recalls, precs
 
+
     def loss(self,
              cls_score,
              bbox_pred,
@@ -162,14 +163,15 @@ class BBoxHeadAVA(nn.Module):
              bbox_targets=None,
              bbox_weights=None,
              reduce=True):
-
         losses = dict()
         if cls_score is not None:
             # Only use the cls_score
+            #labels = labels[:, 1:]
+            # pos_inds = torch.sum(labels, dim=-1) > 0
+            # cls_score = cls_score[pos_inds, 1:]
+            # labels = labels[pos_inds]
             labels = labels[:, 1:]
-            pos_inds = torch.sum(labels, dim=-1) > 0
-            cls_score = cls_score[pos_inds, 1:]
-            labels = labels[pos_inds]
+            cls_score = cls_score[:, 1:]
 
             bce_loss = F.binary_cross_entropy_with_logits
             losses['loss_action_cls'] = bce_loss(cls_score, labels)
@@ -188,7 +190,7 @@ class BBoxHeadAVA(nn.Module):
                        img_shape,
                        flip=False,
                        crop_quadruple=None,
-                       cfg=None):
+                       cfg = None):
 
         # might be used by testing w. augmentation
         if isinstance(cls_score, list):

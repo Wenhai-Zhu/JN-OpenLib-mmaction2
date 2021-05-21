@@ -104,6 +104,8 @@ class ObjectDetectionEvaluator(DetectionEvaluator):
         self,
         categories,
         matching_iou_threshold=0.5,
+        label_id_offset=1,
+        num_class_offset=0,
         evaluate_corlocs=False,
         metric_prefix=None,
         use_weighted_mean_ap=False,
@@ -133,12 +135,12 @@ class ObjectDetectionEvaluator(DetectionEvaluator):
             ValueError: If the category ids are not 1-indexed.
         """
         super(ObjectDetectionEvaluator, self).__init__(categories)
-        self._num_classes = max([cat['id'] for cat in categories])
-        if min(cat['id'] for cat in categories) < 1:
-            raise ValueError('Classes should be 1-indexed.')
+        self._num_classes = max([cat['id'] for cat in categories]) + num_class_offset
+        if min(cat['id'] for cat in categories) < 0:
+            raise ValueError('Classes should be 0-indexed.')
         self._matching_iou_threshold = matching_iou_threshold
         self._use_weighted_mean_ap = use_weighted_mean_ap
-        self._label_id_offset = 1
+        self._label_id_offset = label_id_offset
         self._evaluate_masks = evaluate_masks
         self._evaluation = ObjectDetectionEvaluation(
             num_groundtruth_classes=self._num_classes,
@@ -298,8 +300,8 @@ class ObjectDetectionEvaluator(DetectionEvaluator):
         (
             per_class_ap,
             mean_ap,
-            _,
-            _,
+            precisions_per_class,
+            recalls_per_class,
             per_class_corloc,
             mean_corloc,
         ) = self._evaluation.evaluate()
@@ -348,10 +350,12 @@ class ObjectDetectionEvaluator(DetectionEvaluator):
 class PascalDetectionEvaluator(ObjectDetectionEvaluator):
     """A class to evaluate detections using PASCAL metrics."""
 
-    def __init__(self, categories, matching_iou_threshold=0.5):
+    def __init__(self, categories, matching_iou_threshold=0.5,label_id_offset=1, num_class_offset=0):
         super(PascalDetectionEvaluator, self).__init__(
             categories,
             matching_iou_threshold=matching_iou_threshold,
+            label_id_offset=label_id_offset,
+            num_class_offset=num_class_offset,
             evaluate_corlocs=False,
             use_weighted_mean_ap=False,
         )
@@ -612,7 +616,7 @@ class ObjectDetectionEvaluation:
             all_tp_fp_labels = np.array([], dtype=bool)
 
         for class_index in range(self.num_class):
-            if self.num_gt_instances_per_class[class_index] == 0:
+            if  self.num_gt_instances_per_class[class_index] == 0:
                 continue
             if not self.scores_per_class[class_index]:
                 scores = np.array([], dtype=float)

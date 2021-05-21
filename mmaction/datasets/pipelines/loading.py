@@ -439,9 +439,9 @@ class SampleAVAFrames(SampleFrames):
             -self.frame_interval // 2, (self.frame_interval + 1) // 2,
             size=self.clip_len)
 
-        #frame_inds = self._get_clips(center_index, skip_offsets, shot_info)
-        frame_range = [results['shot_info'][0], results['total_frames']]
-        frame_inds = self._get_clips(center_index, skip_offsets, frame_range)
+        frame_inds = self._get_clips(center_index, skip_offsets, shot_info)
+        #frame_range = [results['shot_info'][0], results['total_frames']]
+        #frame_inds = self._get_clips(center_index, skip_offsets, frame_range)
 
         results['frame_inds'] = np.array(frame_inds, dtype=np.int)
         results['clip_len'] = self.clip_len
@@ -456,6 +456,42 @@ class SampleAVAFrames(SampleFrames):
                     f'frame_interval={self.frame_interval}, '
                     f'test_mode={self.test_mode})')
         return repr_str
+
+
+
+@PIPELINES.register_module()
+class SampleVia3Frames(SampleFrames):
+
+    def __init__(self, clip_len, frame_interval=2, test_mode=False):
+        super().__init__(clip_len, frame_interval, test_mode=test_mode)
+
+    def _get_clips(self, center_index, skip_offsets, shot_info):
+        start = center_index - (self.clip_len // 2) * self.frame_interval
+        end = center_index + ((self.clip_len + 1) // 2) * self.frame_interval
+        frame_inds = list(range(start, end, self.frame_interval))
+        frame_inds = frame_inds + skip_offsets
+        frame_inds = np.clip(frame_inds, shot_info[0], shot_info[1] - 1)
+
+        return frame_inds
+
+    def __call__(self, results):
+        timestamp = results['timestamp']
+        timestamps_list = results['timestamps_list']
+        center_index = timestamps_list.index(timestamp)
+        skip_offsets = np.random.randint(
+            -self.frame_interval // 2, (self.frame_interval + 1) // 2,
+            size=self.clip_len)
+
+        frame_inds = self._get_clips(center_index, skip_offsets, [0, len(timestamps_list)-1])
+        #frame_range = [results['shot_info'][0], results['total_frames']]
+        #frame_inds = self._get_clips(center_index, skip_offsets, frame_range)
+        frame_inds = np.array(timestamps_list)[frame_inds]
+        results['frame_inds'] = np.array(frame_inds, dtype=np.int)
+        results['clip_len'] = self.clip_len
+        results['frame_interval'] = self.frame_interval
+        results['num_clips'] = 1
+        results['crop_quadruple'] = np.array([0, 0, 1, 1], dtype=np.float32)
+        return results
 
 
 @PIPELINES.register_module()
@@ -1166,6 +1202,100 @@ class RawFrameDecode:
             if 'proposals' in results and results['proposals'] is not None:
                 proposals = results['proposals']
                 proposals = (proposals * scale_factor).astype(np.float32)
+                results['proposals'] = proposals
+
+        return results
+
+    def __repr__(self):
+        repr_str = (f'{self.__class__.__name__}('
+                    f'io_backend={self.io_backend}, '
+                    f'decoding_backend={self.decoding_backend})')
+        return repr_str
+
+@PIPELINES.register_module()
+class ViaRawFrameDecode:
+    """Load and decode frames with given indices.
+
+    Required keys are "frame_dir", "filename_tmpl" and "frame_inds",
+    added or modified keys are "imgs", "img_shape" and "original_shape".
+
+    Args:
+        io_backend (str): IO backend where frames are stored. Default: 'disk'.
+        decoding_backend (str): Backend used for image decoding.
+            Default: 'cv2'.
+        kwargs (dict, optional): Arguments for FileClient.
+    """
+
+    def __init__(self, io_backend='disk', decoding_backend='cv2',  is_scale=True, **kwargs):
+        self.io_backend = io_backend
+        self.decoding_backend = decoding_backend
+        self.is_scale = is_scale
+        self.kwargs = kwargs
+        self.file_client = None
+
+    def __call__(self, results):
+        """Perform the ``RawFrameDecode`` to pick frames given indices.
+
+        Args:
+            results (dict): The resulting dict to be modified and passed
+                to the next transform in pipeline.
+        """
+        mmcv.use_backend(self.decoding_backend)
+
+        directory = results['frame_dir']
+        filename_tmpl = results['filename_tmpl']
+        modality = results['modality']
+
+        if self.file_client is None:
+            self.file_client = FileClient(self.io_backend, **self.kwargs)
+
+        imgs = list()
+
+        if results['frame_inds'].ndim != 1:
+            results['frame_inds'] = np.squeeze(results['frame_inds'])
+
+        offset = results.get('offset', 0)
+
+        for frame_idx in results['frame_inds']:
+            frame_idx += offset
+            if modality == 'RGB':
+                filepath = osp.join(directory, filename_tmpl.format(frame_idx))
+                img_bytes = self.file_client.get(filepath)
+                # Get frame with channel order RGB directly.
+                cur_frame = mmcv.imfrombytes(img_bytes, channel_order='rgb')
+                imgs.append(cur_frame)
+            elif modality == 'Flow':
+                x_filepath = osp.join(directory,
+                                      filename_tmpl.format('x', frame_idx))
+                y_filepath = osp.join(directory,
+                                      filename_tmpl.format('y', frame_idx))
+                x_img_bytes = self.file_client.get(x_filepath)
+                x_frame = mmcv.imfrombytes(x_img_bytes, flag='grayscale')
+                y_img_bytes = self.file_client.get(y_filepath)
+                y_frame = mmcv.imfrombytes(y_img_bytes, flag='grayscale')
+                imgs.extend([x_frame, y_frame])
+            else:
+                raise NotImplementedError
+
+        results['imgs'] = imgs
+        results['original_shape'] = imgs[0].shape[:2]
+        results['img_shape'] = imgs[0].shape[:2]
+
+        # we resize the gt_bboxes and proposals to their real scale
+        if 'gt_bboxes' in results:
+            h, w = results['img_shape']
+            if self.is_scale==True:
+                scale_factor = np.array([w, h, w, h])
+            else:
+                scale_factor = np.array([1, 1, 1, 1])
+            gt_bboxes = results['gt_bboxes']
+            gt_bboxes = (gt_bboxes * scale_factor).astype(np.float32)
+            results['gt_bboxes'] = gt_bboxes
+            if 'proposals' in results and results['proposals'] is not None:
+                proposals = results['proposals']
+                proposals = (proposals * scale_factor).astype(np.float32)
+                indx =  np.where(proposals == -1)
+                assert  (indx[0].size==0) and (indx[1].size==0)
                 results['proposals'] = proposals
 
         return results

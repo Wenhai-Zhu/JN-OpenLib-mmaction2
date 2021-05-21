@@ -7,15 +7,17 @@ import glob
 import mmcv
 import numpy as np
 from mmcv.utils import print_log
-
-from ..core.evaluation.ava_utils import ava_eval, read_labelmap, results2csv
+from tqdm import tqdm
+from ..core.evaluation.via3_utils import via3_eval, read_labelmap, results2csv
 from ..utils import get_root_logger
 from .base import BaseDataset
 from .registry import DATASETS
-
+import json
+from .via3_tool import Via3Json
+from colorama import Fore
 
 @DATASETS.register_module()
-class AVADataset(BaseDataset):
+class VIA3Dataset(BaseDataset):
     """AVA dataset for spatial temporal detection.
 
     Based on official AVA annotation files, the dataset loads raw frames,
@@ -92,38 +94,65 @@ class AVADataset(BaseDataset):
 
     def __init__(self,
                  ann_file,
-                 exclude_file,
+                 proposal_file,
                  pipeline,
-                 label_file=None,
-                 filename_tmpl='img_{:05}.jpg',
-                 proposal_file=None,
-                 person_det_score_thr=0.9,
-                 num_classes=81,
+                 filename_tmpl='_{:05}.jpg',
+                 attribute='person',
                  custom_classes=None,
+                 person_det_score_thr=0.9,
                  data_prefix=None,
                  test_mode=False,
                  modality='RGB',
                  num_max_proposals=1000,
-                 timestamp_start=900,
-                 timestamp_end=1800):
+                 timestamp_start = 0,
+                 timestamp_end = 1800,):
         # since it inherits from `BaseDataset`, some arguments
         # should be assigned before performing `load_annotations()`
-        self.custom_classes = custom_classes
-        if custom_classes is not None:
-            assert num_classes == len(custom_classes) + 1
-            assert 0 not in custom_classes
-            _, class_whitelist = read_labelmap(open(label_file))
-            assert set(custom_classes).issubset(class_whitelist)
+        self.attribute = attribute
 
-            self.custom_classes = tuple([0] + custom_classes)
-        self.exclude_file = exclude_file
-        self.label_file = label_file
-        self.proposal_file = proposal_file
+
+        self.proposals = {}
+        self.via3_proposal = Via3Json(proposal_file)
+        self.att_ids_proposal = self.via3_proposal.loadIdsFromAttsname(self.attribute)
+
+
+        self.via3_gt = Via3Json(ann_file)
+        self.att_ids_gt = self.via3_gt.loadIdsFromAttsname(self.attribute)
+        assert len(self.att_ids_gt) > 0
+        self.att_ids2att_labels = {att_id : i for i, att_id in enumerate(self.att_ids_gt)}
+        self.att_ids2att_infos = {att_id : self.via3_gt.loadAttFromId(att_id) for  att_id in self.att_ids_gt}
+        self.fids_gt = self.via3_gt.loadFilesFid()
+        self.filesinfo_gt = self.via3_gt.loadFilesInfoFromAll()
+
+        self.opt_ids2opt_names = self.via3_gt.attributes[self.att_ids_gt[0]]['options']
+        self.att_ids2att_infos = self.via3_gt.loadAttsFromAll()
+
+        self.all_classes = [self.opt_ids2opt_names[pt_id] for pt_id in self.opt_ids2opt_names]
+        self.custom_classes = [custom_classes, ] if isinstance(custom_classes, str) else custom_classes
+        if custom_classes is None:
+            self.classes = self.all_classes
+        else:
+            assert isinstance(custom_classes, (list, tuple))
+            assert set(self.custom_classes).issubset(self.all_classes)
+            self.classes = self.custom_classes
+
+        self.opt_ids = self.via3_gt.loadOptidsFromAtt(self.att_ids2att_infos[self.att_ids_gt[0]], self.classes)
+
+        self.opt_ids2opt_labels = {opt_id : label for  label, opt_id in enumerate(self.opt_ids)}
+        self.opt_labels2opt_names = {self.opt_ids2opt_labels[opt_id] :
+                                     self.opt_ids2opt_names[opt_id]
+                                     for  opt_id in self.opt_ids}
+
+        arrs_opts = {self.att_ids_gt[0]:self.opt_ids}
+        self.metadatasinfo_gt = self.via3_gt.loadMetadatasInfoFromAll(arrs_opts)
+        self.metadatasinfo_proposal = self.via3_proposal.loadMetadatasInfoFromAll(arrs_opts)
+
         assert 0 <= person_det_score_thr <= 1, (
             'The value of '
             'person_det_score_thr should in [0, 1]. ')
+
+
         self.person_det_score_thr = person_det_score_thr
-        self.num_classes = num_classes
         self.filename_tmpl = filename_tmpl
         self.num_max_proposals = num_max_proposals
         self.timestamp_start = timestamp_start
@@ -135,170 +164,135 @@ class AVADataset(BaseDataset):
             data_prefix,
             test_mode,
             modality=modality,
-            num_classes=num_classes)
+            num_classes=len(self.opt_ids2opt_labels))
 
-        if self.proposal_file is not None:
-            self.proposals = mmcv.load(self.proposal_file)
-        else:
-            self.proposals = None
-
-        if not test_mode:
-            valid_indexes = self.filter_exclude_file()
-            self.logger.info(
-                f'{len(valid_indexes)} out of {len(self.video_infos)} '
-                f'frames are valid.')
-            self.video_infos = [self.video_infos[i] for i in valid_indexes]
-        print()
-
-    def parse_img_record(self, img_records):
-        bboxes, labels, entity_ids = [], [], []
-        while len(img_records) > 0:
-            img_record = img_records[0]
-            num_img_records = len(img_records)
-            selected_records = list(
-                filter(
-                    lambda x: np.array_equal(x['entity_box'], img_record[
-                        'entity_box']), img_records))
-            num_selected_records = len(selected_records)
-            img_records = list(
-                filter(
-                    lambda x: not np.array_equal(x['entity_box'], img_record[
-                        'entity_box']), img_records))
-            assert len(img_records) + num_selected_records == num_img_records
-
-            bboxes.append(img_record['entity_box'])
-            valid_labels = np.array([
-                selected_record['label']
-                for selected_record in selected_records
-            ])
-
-            # The format can be directly used by BCELossWithLogits
+    def parse_metadatainfo(self, metadatainfo):
+        att_id = self.att_ids_gt[0]
+        bboxes, labels = [], []
+        #while len(img_records) > 0:
+        for  a_metadatainfo in  metadatainfo:
+            vid, flg= a_metadatainfo['vid'], a_metadatainfo['flg']
+            z, xy, av = a_metadatainfo['z'], a_metadatainfo['xy'], a_metadatainfo['av']
+            if (av.get(att_id, None)==None) or av[att_id]=='':
+                continue
+            opt_id_list = av[att_id].split(',')
+            valid_labels = np.array([self.opt_ids2opt_labels[opt_id] for opt_id in opt_id_list])
+            #print(valid_labels)
             label = np.zeros(self.num_classes, dtype=np.float32)
-            label[valid_labels] = 1.
-
+            label[valid_labels] = 1
             labels.append(label)
-            entity_ids.append(img_record['entity_id'])
+            bboxes.append(list(map(float, xy[1:])))
 
-        bboxes = np.stack(bboxes)
-        labels = np.stack(labels)
-        entity_ids = np.stack(entity_ids)
-        return bboxes, labels, entity_ids
-
-    def filter_exclude_file(self):
-        valid_indexes = []
-        if self.exclude_file is None:
-            valid_indexes = list(range(len(self.video_infos)))
+        if (bboxes==[]) or  (labels==[]):
+            bboxes  = np.zeros((0,4))
+            labels = [0,self.num_classes]
         else:
-            exclude_video_infos = [
-                x.strip().split(',') for x in open(self.exclude_file)
-            ]
-            for i, video_info in enumerate(self.video_infos):
-                valid_indexes.append(i)
-                for video_id, timestamp in exclude_video_infos:
-                    if (video_info['video_id'] == video_id
-                            and video_info['timestamp'] == int(timestamp)):
-                        valid_indexes.pop()
-                        break
-        return valid_indexes
+            bboxes = np.array(bboxes)
+            labels = np.array(labels)
+        return bboxes, labels
 
     def load_annotations(self):
         video_infos = []
-        records_dict_by_img = defaultdict(list)
-        with open(self.ann_file, 'r') as fin:
-            for line in fin:
-                line_split = line.strip().split(',')
+        # self.fids = self.via3_gt.loadFilesFid()
+        # self.filesinfo = self.via3_gt.loadFilesInfoFromAll()
+        # self.metadatasinfo = self.via3_gt.loadMetadatasInfoFromAll()
+        timestamps_dict = defaultdict(list)
+        print('loading data : {}'.format(self.ann_file))
+        for fid in tqdm(self.fids_gt, bar_format='{l_bar}%s{bar}%s{r_bar}' % (Fore.BLUE, Fore.RESET)):
+            metadatainfo_proposal = self.metadatasinfo_proposal[fid]
+            bboxes_xywh_proposal, labels_proposal = self.parse_metadatainfo(metadatainfo_proposal)
+            bboxes_xyxy_proposal = bboxes_xywh_proposal.copy()
+            bboxes_xyxy_proposal[:, [2, 3]] = bboxes_xywh_proposal[:, [0, 1]] + bboxes_xywh_proposal[:, [2, 3]]
+            bboxes_proposal = bboxes_xyxy_proposal
 
-                label = int(line_split[6])
-                if self.custom_classes is not None:
-                    if label not in self.custom_classes:
-                        continue
-                    label = self.custom_classes.index(label)
+            metadatainfo_gt = self.metadatasinfo_gt[fid]
+            bboxes_xywh_gt, labels_gt = self.parse_metadatainfo(metadatainfo_gt)
+            bboxes_xyxy_gt = bboxes_xywh_gt.copy()
+            bboxes_xyxy_gt[:, [2, 3]] = bboxes_xyxy_gt[:, [0, 1]] + bboxes_xyxy_gt[:, [2, 3]]
+            bboxes_gt = bboxes_xyxy_gt
 
-                video_id = line_split[0]
-                timestamp = int(line_split[1])
-                img_key = f'{video_id},{timestamp:04d}'
+            if bboxes_gt.size <= 0:
+                continue
 
-                entity_box = np.array(list(map(float, line_split[2:6])))
-                entity_id = int(line_split[7])
-                shot_info = (0, (self.timestamp_end - self.timestamp_start) *
-                             self._FPS)
-
-                video_info = dict(
-                    video_id=video_id,
-                    timestamp=timestamp,
-                    entity_box=entity_box,
-                    label=label,
-                    entity_id=entity_id,
-                    shot_info=shot_info)
-                records_dict_by_img[img_key].append(video_info)
-
-        for img_key in records_dict_by_img:
-            video_id, timestamp = img_key.split(',')
-            bboxes, labels, entity_ids = self.parse_img_record(
-                records_dict_by_img[img_key])
-            ann = dict(
-                gt_bboxes=bboxes, gt_labels=labels, entity_ids=entity_ids)
+            fileinfo = self.filesinfo_gt[fid]
+            img_name = fileinfo['fname']
+            img_name_prefix , extension = osp.splitext(img_name)
+            video_id, timestamp = img_name_prefix.split('_')
             frame_dir = video_id
+            timestamp = int(timestamp)
+            timestamps_dict[video_id].append(timestamp)
+            if len(timestamps_dict[video_id]) >= 2:
+                assert timestamps_dict[video_id][-1] > timestamps_dict[video_id][-2]
+
             if self.data_prefix is not None:
                 frame_dir = osp.join(self.data_prefix, frame_dir)
+            img_key = '{},{:05}'.format(video_id, timestamp)
+
+            filepath = osp.join(frame_dir, video_id + self.filename_tmpl.format(int(timestamp)))
+            h, w = mmcv.imread(filepath).shape[:2]
+            scale_factor = np.array([w,h,w,h])
+
+            self.proposals[img_key] = bboxes_proposal/scale_factor
+            ann = dict(gt_bboxes=bboxes_gt/scale_factor, gt_labels=labels_gt)
+
             video_info = dict(
-                filename=glob.glob(frame_dir + '*')[0],
                 frame_dir=frame_dir,
                 video_id=video_id,
                 timestamp=int(timestamp),
                 img_key=img_key,
-                shot_info=shot_info,
                 fps=self._FPS,
                 ann=ann)
             video_infos.append(video_info)
+        for video_info in video_infos:
+            timestamps_list = timestamps_dict[video_info['video_id']]
+            video_info.update(timestamps_list=timestamps_list)
         return video_infos
 
     def prepare_train_frames(self, idx):
         """Prepare the frames for training given the index."""
         results = copy.deepcopy(self.video_infos[idx])
         img_key = results['img_key']
-
-        results['filename_tmpl'] = self.filename_tmpl
+        results['filename_tmpl'] = results['video_id'] + self.filename_tmpl
         results['modality'] = self.modality
-        results['start_index'] = self.start_index
+        results['start_index'] = 0
         results['timestamp_start'] = self.timestamp_start
-        results['timestamp_end'] = self.timestamp_end
+        results['timestamp_end'] = results['timestamps_list'][-1]
 
-        if self.proposals is not None:
-            if img_key not in self.proposals:
-                results['proposals'] = np.array([[0, 0, 1, 1]])
-                results['scores'] = np.array([1])
+        assert self.proposals
+        if img_key not in self.proposals:
+            results['proposals'] = np.array([[0, 0, 1, 1]])
+            results['scores'] = np.array([1])
+        else:
+            proposals = self.proposals[img_key]
+            assert proposals.shape[-1] in [4, 5]
+            if proposals.shape[-1] == 5:
+                thr = min(self.person_det_score_thr, max(proposals[:, 4]))
+                positive_inds = (proposals[:, 4] >= thr)
+                proposals = proposals[positive_inds]
+                proposals = proposals[:self.num_max_proposals]
+                results['proposals'] = proposals[:, :4]
+                results['scores'] = proposals[:, 4]
             else:
-                proposals = self.proposals[img_key]
-                assert proposals.shape[-1] in [4, 5]
-                if proposals.shape[-1] == 5:
-                    thr = min(self.person_det_score_thr, max(proposals[:, 4]))
-                    positive_inds = (proposals[:, 4] >= thr)
-                    proposals = proposals[positive_inds]
-                    proposals = proposals[:self.num_max_proposals]
-                    results['proposals'] = proposals[:, :4]
-                    results['scores'] = proposals[:, 4]
-                else:
-                    proposals = proposals[:self.num_max_proposals]
-                    results['proposals'] = proposals
+                proposals = proposals[:self.num_max_proposals]
+                results['proposals'] = proposals
+
 
         ann = results.pop('ann')
         results['gt_bboxes'] = ann['gt_bboxes']
         results['gt_labels'] = ann['gt_labels']
-        results['entity_ids'] = ann['entity_ids']
-        #results = self.pipeline(results)
-        return self.pipeline(results)
+        #results['entity_ids'] = ann['entity_ids']
+        results = self.pipeline(results)
+        return results
 
     def prepare_test_frames(self, idx):
-        """Prepare the frames for testing given the index."""
+        """Prepare the frames for training given the index."""
         results = copy.deepcopy(self.video_infos[idx])
         img_key = results['img_key']
-
-        results['filename_tmpl'] = self.filename_tmpl
+        results['filename_tmpl'] = results['video_id'] + self.filename_tmpl
         results['modality'] = self.modality
-        results['start_index'] = self.start_index
+        results['start_index'] = 0
         results['timestamp_start'] = self.timestamp_start
-        results['timestamp_end'] = self.timestamp_end
+        results['timestamp_end'] = results['timestamps_list'][-1]
 
         if self.proposals is not None:
             if img_key not in self.proposals:
@@ -319,11 +313,9 @@ class AVADataset(BaseDataset):
                     results['proposals'] = proposals
 
         ann = results.pop('ann')
-        # Follow the mmdet variable naming style.
         results['gt_bboxes'] = ann['gt_bboxes']
         results['gt_labels'] = ann['gt_labels']
-        results['entity_ids'] = ann['entity_ids']
-
+        #results['entity_ids'] = ann['entity_ids']
         return self.pipeline(results)
 
     def dump_results(self, results, out):
@@ -335,15 +327,15 @@ class AVADataset(BaseDataset):
                  metrics=('mAP', ),
                  metric_options=None,
                  logger=None):
+
         # need to create a temp result file
         assert len(metrics) == 1 and metrics[0] == 'mAP', (
             'For evaluation on AVADataset, you need to use metrics "mAP" '
             'See https://github.com/open-mmlab/mmaction2/pull/567 '
             'for more info.')
-        time_now = datetime.now().strftime('%Y%m%d_%H%M%S')
-        temp_file = f'AVA_{time_now}_result.csv'
-        results2csv(self, results, temp_file, self.custom_classes)
-
+        #time_now = datetime.now().strftime('%Y%m%d_%H%M%S')
+        #temp_file = f'VIA3.0_{time_now}_result.csv'
+        #results2csv(self, results, temp_file, self.custom_classes)
         ret = {}
         for metric in metrics:
             msg = f'Evaluating {metric} ...'
@@ -351,19 +343,16 @@ class AVADataset(BaseDataset):
                 msg = '\n' + msg
             print_log(msg, logger=logger)
 
-            eval_result = ava_eval(
-                temp_file,
-                metric,
-                self.label_file,
-                self.ann_file,
-                self.exclude_file,
-                custom_classes=self.custom_classes)
+            eval_result = via3_eval(results,self.video_infos,
+                                    self.opt_ids,
+                                    self.opt_ids2opt_labels,
+                                    self.opt_ids2opt_names,metric)
+
             log_msg = []
             for k, v in eval_result.items():
                 log_msg.append(f'\n{k}\t{v: .4f}')
             log_msg = ''.join(log_msg)
             print_log(log_msg, logger=logger)
             ret.update(eval_result)
-
-        os.remove(temp_file)
         return ret
+

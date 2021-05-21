@@ -325,9 +325,7 @@ class DistEvalHook(EvalHook):
             tmpdir=tmpdir,
             gpu_collect=self.gpu_collect)
         if runner.rank == 0:
-            print('\n')
             key_score = self.evaluate(runner, results)
-
             if self.save_best:
                 self._save_ckpt(runner, key_score)
 

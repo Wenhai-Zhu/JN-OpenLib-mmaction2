@@ -72,7 +72,7 @@ def bbox2roi(bbox_list):
             rois = torch.cat([img_inds, bboxes[:, :4]], dim=-1)
         else:
             rois = bboxes.new_zeros((0, 5))
-        rois_list.append(rois)
+        rois_list.append(rois.to(bboxes.device))
     rois = torch.cat(rois_list, 0)
     return rois
 
