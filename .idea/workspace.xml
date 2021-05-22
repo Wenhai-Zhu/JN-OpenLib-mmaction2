@@ -2,27 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe5cf2d6-e0a6-4b4f-ac8b-4207342744e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JN-OpenLib-mmaction2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JN-OpenLib-mmaction2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via_rgb.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via_rgb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/core/bbox/bbox_target.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/core/bbox/bbox_target.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/object_detection_evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/object_detection_evaluation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/core/evaluation/eval_hooks.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/core/evaluation/eval_hooks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/datasets/ava_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/datasets/ava_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/datasets/builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/datasets/builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/datasets/dataset_wrappers.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/datasets/dataset_wrappers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/datasets/pipelines/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/datasets/pipelines/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/datasets/pipelines/loading.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/datasets/pipelines/loading.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/datasets/via3_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/datasets/via3_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/datasets/via3_tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/datasets/via3_tool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/models/heads/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/models/heads/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/models/heads/bbox_head.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/models/heads/bbox_head.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmaction/models/heads/roi_head.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/models/heads/roi_head.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmdet/core/bbox/transforms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmdet/core/bbox/transforms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmdet/models/roi_heads/standard_roi_head.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmdet/models/roi_heads/standard_roi_head.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via_rgb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,9 +16,10 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$demo_spatiotemporal_det.coverage" NAME="demo_spatiotemporal_det Coverage Results" MODIFIED="1618409092965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$webcam_demo_ava.coverage" NAME="webcam_demo_ava Coverage Results" MODIFIED="1621315391642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$test.coverage" NAME="test Coverage Results" MODIFIED="1621567165918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$webcam_demo_via3.coverage" NAME="webcam_demo_via3 Coverage Results" MODIFIED="1621473050949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$train.coverage" NAME="train Coverage Results" MODIFIED="1621567075515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$detection2_outvia3.coverage" NAME="detection2_outvia3 Coverage Results" MODIFIED="1621653858052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$test.coverage" NAME="test Coverage Results" MODIFIED="1621649738666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$webcam_demo_via3.coverage" NAME="webcam_demo_via3 Coverage Results" MODIFIED="1621650675342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$train.coverage" NAME="train Coverage Results" MODIFIED="1621648916839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$my_webcam_demo.coverage" NAME="my_webcam_demo Coverage Results" MODIFIED="1619072690611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$webcam_demo.coverage" NAME="webcam_demo Coverage Results" MODIFIED="1620297005717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -45,9 +29,12 @@
         <counts>
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.73" value="1" />
+          <entry key="project.open.time.89" value="1" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -61,9 +48,9 @@
           <entry key="gitignore" value="2" />
           <entry key="ipynb" value="4" />
           <entry key="log" value="1" />
-          <entry key="py" value="516" />
+          <entry key="py" value="526" />
           <entry key="pylintrc" value="1" />
-          <entry key="txt" value="6" />
+          <entry key="txt" value="7" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
@@ -73,64 +60,99 @@
           <entry key="IPNB" value="4" />
           <entry key="Image" value="2" />
           <entry key="Ini" value="1" />
-          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="PLAIN_TEXT" value="24" />
           <entry key="PyRemoteDebug" value="5" />
-          <entry key="Python" value="516" />
+          <entry key="Python" value="526" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cpp" value="51" />
-          <entry key="dummy" value="10" />
+          <entry key="dummy" value="20" />
           <entry key="gitignore" value="1" />
-          <entry key="py" value="8219" />
+          <entry key="py" value="8228" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="C++" value="51" />
-          <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="8219" />
+          <entry key="PLAIN_TEXT" value="35" />
+          <entry key="Python" value="8228" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="387" column="28" lean-forward="true" selection-start-line="387" selection-start-column="28" selection-end-line="387" selection-end-column="28" />
+            <state relative-caret-position="314">
+              <caret line="407" column="18" lean-forward="true" selection-start-line="407" selection-start-column="18" selection-end-line="407" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/-1782980147/importlib/__init__.py">
+        <entry file="file://$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            <state relative-caret-position="103">
+              <caret line="156" column="19" lean-forward="true" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mywork/detection2_outvia3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="111" column="34" lean-forward="true" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/mmcv/utils/config.py">
+        <entry file="file://$PROJECT_DIR$/mywork/via3_tool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="250" selection-start-line="250" selection-end-line="250" />
+            <state relative-caret-position="125">
+              <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/train.py">
+        <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_ava.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="401">
+              <caret line="133" column="79" selection-start-line="133" selection-start-column="79" selection-end-line="133" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_via3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1241">
+              <caret line="185" column="32" selection-start-line="185" selection-start-column="32" selection-end-line="185" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/faster_rcnn_r50_fpn_2x_coco.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mywork/faster_rcnn_r50_fpn_2x_coco.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -138,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mmaction/datasets/via3_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-26">
-              <caret line="332" column="74" lean-forward="true" selection-start-line="332" selection-start-column="74" selection-end-line="332" selection-end-column="74" />
+            <state relative-caret-position="533">
+              <caret line="332" column="74" selection-start-line="332" selection-start-column="74" selection-end-line="332" selection-end-column="74" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -148,42 +170,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mmaction/datasets/dataset_wrappers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1632">
-              <caret line="93" column="57" lean-forward="true" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
-              <folding>
-                <element signature="e#1#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="227" selection-start-line="227" selection-end-line="227" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/object_detection_evaluation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="568" column="44" lean-forward="true" selection-start-line="568" selection-start-column="44" selection-end-line="568" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/metrics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
+            <state relative-caret-position="361">
               <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
             </state>
           </provider>
@@ -250,7 +239,6 @@
         <option value="$PROJECT_DIR$/record.cpp" />
         <option value="$PROJECT_DIR$/mmaction/datasets/via_dataset.py" />
         <option value="$PROJECT_DIR$/mmaction/datasets/__init__.py" />
-        <option value="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py" />
         <option value="$PROJECT_DIR$/mywork/my_webcam_demo.py" />
         <option value="$PROJECT_DIR$/mywork/webcam_demo.py" />
         <option value="$PROJECT_DIR$/mmdet/models/detectors/two_stage.py" />
@@ -278,6 +266,7 @@
         <option value="$PROJECT_DIR$/mmaction/datasets/dataset_wrappers.py" />
         <option value="$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py" />
         <option value="$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py" />
+        <option value="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py" />
       </list>
     </option>
   </component>
@@ -287,9 +276,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1945" />
-    <option name="y" value="153" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -302,7 +291,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,96 +301,10 @@
             <path>
               <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
               <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
-              <item name="detection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
-              <item name="detection" type="462c0819:PsiDirectoryNode" />
-              <item name="via3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmaction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmaction" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmaction" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmaction" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="ava_evaluation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmaction" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmaction" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmaction" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="heads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmdet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmdet" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mmdet" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="roi_heads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
               <item name="mywork" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -415,21 +317,6 @@
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="&lt; Remote Python 3.6.13 (sftp://root@192.168.1.236:12001/my_app/anaconda3/envs/JN-OpenLib-mmaction2-pytorch1.6-py3.6/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
               <item name="1976454384" type="d76c9d6b:PyRemoteLibrariesNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.13 (sftp://root@192.168.1.236:12001/my_app/anaconda3/envs/JN-OpenLib-mmaction2-pytorch1.6-py3.6/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="1976454384" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="-1782980147" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.13 (sftp://root@192.168.1.236:12001/my_app/anaconda3/envs/JN-OpenLib-mmaction2-pytorch1.6-py3.6/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="1976454384" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="-1782980147" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
-              <item name="importlib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
@@ -459,6 +346,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -469,12 +357,12 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="X:\4.my_work\1.zwh\01.mmaction2\mmaction2\JN-OpenLib-mmaction2\configs\detection\via3" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="X:\4.my_work\1.zwh\01.mmaction2\mmaction2\JN-OpenLib-mmaction2\mywork" />
       <recent name="X:\4.my_work\1.zwh\01.mmaction2\mmaction2\JN-OpenLib-mmaction2\mmaction\core\evaluation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="X:\4.my_work\1.zwh\01.mmaction2\mmaction2\JN-OpenLib-mmaction2\configs\detection\via3" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -489,7 +377,30 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.detection2_outvia3">
+    <configuration name="detection2_outvia3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="JN-OpenLib-mmaction2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="CUDA_VISIBLE_DEVICES" value="0" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mywork/detection2_outvia3.py" />
+      <option name="PARAMETERS" value="./mywork/faster_rcnn_r50_fpn_2x_coco.py ../../Checkpoints/mmdetection/faster_rcnn_r50_fpn_2x_coco_bbox_mAP-0.384_20200504_210434-a5d8aa15.pth --input /work/01.mmaction2/Datasets/Interaction/images/train/*/*.jpg --gen_via3 --output /work/01.mmaction2/Datasets/Interaction/annotations_test --show" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="JN-OpenLib-mmaction2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -579,7 +490,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mywork/webcam_demo_via3.py" />
-      <option name="PARAMETERS" value="--config work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py --checkpoint work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb/latest.pth --det-config ../../Checkpoints/mmdetection/my_gfl_r50_fpn_mstrain_2x_person_gn.py --det-checkpoint ../../Checkpoints/mmdetection/my_gfl_r50_fpn_mstrain_2x_person_gn.pth --camera-id mywork/seq8.avi --img-scale 0.5 --det-score-thr 0.5 --act-score-thr 0.1 --drawing-stepsize 4" />
+      <option name="PARAMETERS" value="--config work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py --checkpoint work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb/latest.pth --det-config ../../Checkpoints/mmdetection/my_gfl_r50_fpn_mstrain_2x_person_gn.py --det-checkpoint ../../Checkpoints/mmdetection/my_gfl_r50_fpn_mstrain_2x_person_gn.pth --camera-id mywork/seq10.avi --img-scale 0.5 --det-score-thr 0.5 --act-score-thr 0 --drawing-stepsize 4" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -592,12 +503,14 @@
       <item itemvalue="Python.test" />
       <item itemvalue="Python.webcam_demo_via3" />
       <item itemvalue="Python.webcam_demo_ava" />
+      <item itemvalue="Python.detection2_outvia3" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.detection2_outvia3" />
+        <item itemvalue="Python.webcam_demo_via3" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.train" />
-        <item itemvalue="Python.webcam_demo_via3" />
         <item itemvalue="Python.webcam_demo_ava" />
       </list>
     </recent_temporary>
@@ -625,15 +538,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1945" y="153" width="1936" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4962631" visible="true" weight="0.12526652" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4962631" visible="true" weight="0.21641791" />
       <window_info id="Structure" order="1" sideWeight="0.5037369" side_tool="true" weight="0.16364606" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43143812" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20512821" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47826087" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -775,47 +687,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/torch/utils/data/dataloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="1013" selection-start-line="1013" selection-end-line="1013" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mmaction/datasets/audio_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mmaction/datasets/audio_feature_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mmaction/datasets/audio_visual_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/torch/utils/data/_utils/worker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mmaction/apis/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -844,16 +715,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb/20210515_071635.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb/20210515_071635.log" />
     <entry file="file://$PROJECT_DIR$/mmaction/datasets/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3123">
           <caret line="149" column="20" selection-start-line="149" selection-start-column="12" selection-end-line="149" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,17 +750,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mywork/label_map_ava.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/mmaction/datasets/video_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/mmdet/apis/inference.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -906,12 +763,7 @@
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb_bk/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb_bk/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py" />
     <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/eval_hooks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -923,24 +775,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
           <caret line="272" column="55" selection-end-line="275" selection-end-column="60" />
-          <folding>
-            <element signature="e#134#145#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mmaction/datasets/registry.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/mmcv/utils/registry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2539">
-          <caret line="135" column="4" selection-start-line="135" selection-start-column="4" selection-end-line="135" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/-1782980147/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -953,9 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1022,27 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_ava.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1667">
-          <caret line="347" column="45" lean-forward="true" selection-start-line="347" selection-start-column="45" selection-end-line="347" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1621217597945" expanded="true" signature="3145:3282" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_via3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3058">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mmdet/models/roi_heads/standard_roi_head.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1061,33 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4739">
           <caret line="183" column="50" lean-forward="true" selection-start-line="183" selection-start-column="50" selection-end-line="183" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/metrics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mmaction/datasets/dataset_wrappers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
-          <caret line="93" column="57" lean-forward="true" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
-          <folding>
-            <element signature="e#1#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/object_detection_evaluation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="568" column="44" lean-forward="true" selection-start-line="568" selection-start-column="44" selection-end-line="568" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1100,28 +888,38 @@
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/-1782980147/importlib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
+        <state relative-caret-position="2356">
           <caret line="125" selection-start-line="125" selection-end-line="125" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/mmcv/utils/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
+        <state relative-caret-position="4484">
           <caret line="250" selection-start-line="250" selection-end-line="250" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
+        <state relative-caret-position="1007">
           <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mmaction/datasets/dataset_wrappers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1653">
+          <caret line="93" column="57" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
+          <folding>
+            <element signature="e#1#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
+        <state relative-caret-position="4123">
           <caret line="227" selection-start-line="227" selection-end-line="227" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
@@ -1129,20 +927,99 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/metrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/label_map_ava.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/mmcv/utils/registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="181" selection-start-line="181" selection-end-line="181" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/object_detection_evaluation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1388">
+          <caret line="568" column="44" selection-start-line="568" selection-start-column="44" selection-end-line="568" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mmaction/datasets/via3_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="332" column="74" lean-forward="true" selection-start-line="332" selection-start-column="74" selection-end-line="332" selection-end-column="74" />
+        <state relative-caret-position="533">
+          <caret line="332" column="74" selection-start-line="332" selection-start-column="74" selection-end-line="332" selection-end-column="74" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via_rgb.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_ava.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="133" column="79" selection-start-line="133" selection-start-column="79" selection-end-line="133" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_via3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="185" column="32" selection-start-line="185" selection-start-column="32" selection-end-line="185" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/faster_rcnn_r50_fpn_2x_coco.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/faster_rcnn_r50_fpn_2x_coco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="156" column="19" lean-forward="true" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/via3_tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="387" column="28" lean-forward="true" selection-start-line="387" selection-start-column="28" selection-end-line="387" selection-end-column="28" />
+        <state relative-caret-position="314">
+          <caret line="407" column="18" lean-forward="true" selection-start-line="407" selection-start-column="18" selection-end-line="407" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/detection2_outvia3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="111" column="34" lean-forward="true" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
         </state>
       </provider>
     </entry>

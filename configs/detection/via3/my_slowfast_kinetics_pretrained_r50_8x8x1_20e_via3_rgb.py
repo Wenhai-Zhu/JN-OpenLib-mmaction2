@@ -380,15 +380,15 @@ data = dict(
             train_seq8_cfg,
             train_seq9_cfg,
             #train_seq10_cfg,
-            train_seq11_cfg,
-            train_seq12_cfg,
-            train_seq13_cfg,
-            train_seq14_cfg,
+            # train_seq11_cfg,
+            # train_seq12_cfg,
+            # train_seq13_cfg,
+            # train_seq14_cfg,
             #train_seq15_cfg,
-            train_seq16_cfg,
-            train_seq17_cfg,
-            train_seq18_cfg,
-            train_seq19_cfg,
+            # train_seq16_cfg,
+            # train_seq17_cfg,
+            # train_seq18_cfg,
+            # train_seq19_cfg,
             #train_seq20_cfg,
         ],
         separate_eval=True,
@@ -436,7 +436,7 @@ dist_params = dict(backend='nccl')
 log_level = 'INFO'
 #work_dir = './work_dirs/ava/slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb'
 load_from = 'https://download.openmmlab.com/mmaction/recognition/slowfast/slowfast_r50_8x8x1_256e_kinetics400_rgb/slowfast_r50_8x8x1_256e_kinetics400_rgb_20200716-73547d2b.pth'
-resume_from = None
+resume_from = '/work/01.mmaction2/mmaction2/JN-OpenLib-mmaction2/work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb/latest.pth'
 #resume_from = 'work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_ rgb/latest.pth'
 find_unused_parameters = False
 gpu_ids = range(0, 1)

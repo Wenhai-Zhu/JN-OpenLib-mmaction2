@@ -57,9 +57,7 @@ model = dict(
             debug=False)),
     test_cfg=dict(rcnn=dict(action_thr=0.0)))
 dataset_type = 'AVADataset'
-#data_root = 'data/ava/rawframes'
-data_root = 'data/ava/videos_15min'
-#data_root = 'data/ava/videos'
+data_root = 'data/ava/rawframes'
 anno_root = 'data/ava/annotations'
 ann_file_train = 'data/ava/annotations/ava_train_v2.1.csv'
 ann_file_val = 'data/ava/annotations/ava_val_v2.1.csv'
@@ -71,10 +69,8 @@ proposal_file_val = 'data/ava/annotations/ava_dense_proposals_val.FAIR.recall_93
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_bgr=False)
 train_pipeline = [
-    dict(type='DecordInit'),
     dict(type='SampleAVAFrames', clip_len=32, frame_interval=2),
-    dict(type='DecordDecode'),
-    #dict(type='RawFrameDecode'),
+    dict(type='RawFrameDecode'),
     dict(type='RandomRescale', scale_range=(256, 320)),
     dict(type='RandomCrop', size=256),
     dict(type='Flip', flip_ratio=0.5),
@@ -97,10 +93,8 @@ train_pipeline = [
         meta_keys=['scores', 'entity_ids'])
 ]
 val_pipeline = [
-    dict(type='DecordInit'),
     dict(type='SampleAVAFrames', clip_len=32, frame_interval=2),
-    dict(type='DecordDecode'),
-    #dict(type='RawFrameDecode'),
+    dict(type='RawFrameDecode'),
     dict(type='Resize', scale=(-1, 256)),
     dict(
         type='Normalize',
@@ -141,7 +135,17 @@ data = dict(
         label_file=label_file,
         proposal_file=proposal_file_val,
         person_det_score_thr=0.9,
-        data_prefix=data_root))
+        data_prefix=data_root),
+    test = dict(
+        type=dataset_type,
+        ann_file=ann_file_val,
+        exclude_file=exclude_file_val,
+        pipeline=val_pipeline,
+        label_file=label_file,
+        proposal_file=proposal_file_val,
+        person_det_score_thr=0.9,
+        data_prefix=data_root)
+)
 
 optimizer = dict(type='SGD', lr=0.075, momentum=0.9, weight_decay=1e-05)
 optimizer_config = dict(grad_clip=dict(max_norm=40, norm_type=2))
@@ -160,8 +164,8 @@ log_config = dict(interval=20, hooks=[dict(type='TextLoggerHook')])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 #work_dir = './work_dirs/ava/slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb'
-load_from = 'https://download.openmmlab.com/mmaction/recognition/slowfast/slowfast_r50_8x8x1_256e_kinetics400_rgb/slowfast_r50_8x8x1_256e_kinetics400_rgb_20200716-73547d2b.pth'
-resume_from = 'work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb/latest.pth'
+load_from = '../../Checkpoints/mmaction/slowfast_r50_8x8x1_256e_kinetics400_rgb_20200716-73547d2b.pth'
+resume_from = None
 find_unused_parameters = False
 gpu_ids = range(0, 1)
 omnisource = False
