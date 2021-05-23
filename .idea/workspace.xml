@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fe5cf2d6-e0a6-4b4f-ac8b-4207342744e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via_rgb.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,9 +16,9 @@
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$demo_spatiotemporal_det.coverage" NAME="demo_spatiotemporal_det Coverage Results" MODIFIED="1618409092965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$webcam_demo_ava.coverage" NAME="webcam_demo_ava Coverage Results" MODIFIED="1621315391642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$detection2_outvia3.coverage" NAME="detection2_outvia3 Coverage Results" MODIFIED="1621653858052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$test.coverage" NAME="test Coverage Results" MODIFIED="1621649738666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$test.coverage" NAME="test Coverage Results" MODIFIED="1621656506939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$webcam_demo_via3.coverage" NAME="webcam_demo_via3 Coverage Results" MODIFIED="1621650675342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$train.coverage" NAME="train Coverage Results" MODIFIED="1621648916839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$train.coverage" NAME="train Coverage Results" MODIFIED="1621753045529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$my_webcam_demo.coverage" NAME="my_webcam_demo Coverage Results" MODIFIED="1619072690611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JN_OpenLib_mmaction2$webcam_demo.coverage" NAME="webcam_demo Coverage Results" MODIFIED="1620297005717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -43,26 +42,26 @@
           <entry key="cfg" value="1" />
           <entry key="cpp" value="1" />
           <entry key="csv" value="11" />
-          <entry key="gif" value="2" />
+          <entry key="gif" value="4" />
           <entry key="gitattributes" value="2" />
           <entry key="gitignore" value="2" />
-          <entry key="ipynb" value="4" />
+          <entry key="ipynb" value="5" />
           <entry key="log" value="1" />
-          <entry key="py" value="526" />
+          <entry key="py" value="532" />
           <entry key="pylintrc" value="1" />
-          <entry key="txt" value="7" />
+          <entry key="txt" value="8" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="C++" value="1" />
-          <entry key="IPNB" value="4" />
-          <entry key="Image" value="2" />
+          <entry key="IPNB" value="5" />
+          <entry key="Image" value="4" />
           <entry key="Ini" value="1" />
-          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="PLAIN_TEXT" value="25" />
           <entry key="PyRemoteDebug" value="5" />
-          <entry key="Python" value="526" />
+          <entry key="Python" value="532" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -71,7 +70,7 @@
           <entry key="cpp" value="51" />
           <entry key="dummy" value="20" />
           <entry key="gitignore" value="1" />
-          <entry key="py" value="8228" />
+          <entry key="py" value="8256" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
@@ -79,63 +78,43 @@
         <counts>
           <entry key="C++" value="51" />
           <entry key="PLAIN_TEXT" value="35" />
-          <entry key="Python" value="8228" />
+          <entry key="Python" value="8256" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="407" column="18" lean-forward="true" selection-start-line="407" selection-start-column="18" selection-end-line="407" selection-end-column="18" />
+            <state relative-caret-position="307">
+              <caret line="438" column="18" selection-start-line="438" selection-start-column="18" selection-end-line="438" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py">
+        <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="156" column="19" lean-forward="true" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mywork/detection2_outvia3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="111" column="34" lean-forward="true" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
+            <state relative-caret-position="265">
+              <caret line="182" column="17" selection-start-line="182" selection-start-column="12" selection-end-line="182" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mywork/via3_tool.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/demo/label_map_ava.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_ava.py">
+        <entry file="file://$PROJECT_DIR$/demo/demo_spatiotemporal_det.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="133" column="79" selection-start-line="133" selection-start-column="79" selection-end-line="133" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_via3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="185" column="32" selection-start-line="185" selection-start-column="32" selection-end-line="185" selection-end-column="32" />
+            <state>
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -144,36 +123,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo/faster_rcnn_r50_fpn_2x_coco.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mywork/faster_rcnn_r50_fpn_2x_coco.py">
+        <entry file="file://$PROJECT_DIR$/demo/webcam_demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mmaction/datasets/via3_dataset.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="332" column="74" selection-start-line="332" selection-start-column="74" selection-end-line="332" selection-end-column="74" />
+            <state relative-caret-position="300">
+              <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/metrics.py">
+        <entry file="file://$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            <state relative-caret-position="19">
+              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -264,9 +229,9 @@
         <option value="$PROJECT_DIR$/mywork/webcam_demo_via3.py" />
         <option value="$PROJECT_DIR$/mmaction/models/heads/bbox_head.py" />
         <option value="$PROJECT_DIR$/mmaction/datasets/dataset_wrappers.py" />
+        <option value="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py" />
         <option value="$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py" />
         <option value="$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py" />
-        <option value="$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py" />
       </list>
     </option>
   </component>
@@ -277,8 +242,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="1927" />
+    <option name="y" value="146" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -297,11 +262,6 @@
             <path>
               <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
               <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JN-OpenLib-mmaction2" type="462c0819:PsiDirectoryNode" />
-              <item name="mywork" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JN-OpenLib-mmaction2" type="b2602c69:ProjectViewProjectNode" />
@@ -377,7 +337,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.detection2_outvia3">
+  <component name="RunManager" selected="Python.train">
     <configuration name="detection2_outvia3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="JN-OpenLib-mmaction2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -507,10 +467,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.train" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.detection2_outvia3" />
         <item itemvalue="Python.webcam_demo_via3" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.train" />
         <item itemvalue="Python.webcam_demo_ava" />
       </list>
     </recent_temporary>
@@ -545,7 +505,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20512821" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.56856185" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47826087" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -687,49 +647,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mmaction/apis/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="155" selection-start-line="155" selection-end-line="155" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/torch/utils/data/dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-781">
-          <caret line="167" column="6" selection-start-line="167" selection-start-column="6" selection-end-line="167" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/mmcv/runner/epoch_based_runner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/mmcv/utils/path.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/work_dirs/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb/20210515_071635.log" />
-    <entry file="file://$PROJECT_DIR$/mmaction/datasets/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3123">
-          <caret line="149" column="20" selection-start-line="149" selection-start-column="12" selection-end-line="149" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/mmcv/utils/logging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1976454384/1155822577/mmcv/runner/base_runner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9">
@@ -917,16 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4123">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/ava_evaluation/metrics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -955,23 +862,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mmaction/datasets/via3_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="332" column="74" selection-start-line="332" selection-start-column="74" selection-end-line="332" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via_rgb.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_ava.py">
+    <entry file="file://$PROJECT_DIR$/demo/faster_rcnn_r50_fpn_2x_coco.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/faster_rcnn_r50_fpn_2x_coco.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="133" column="79" selection-start-line="133" selection-start-column="79" selection-end-line="133" selection-end-column="79" />
+        <state relative-caret-position="228">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/via3_tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/detection2_outvia3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="103" column="41" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -985,41 +899,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/faster_rcnn_r50_fpn_2x_coco.py">
+    <entry file="file://$PROJECT_DIR$/demo/demo.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/label_map_ava.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/mywork/faster_rcnn_r50_fpn_2x_coco.py">
+    <entry file="file://$PROJECT_DIR$/demo/demo_gradcam.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demo.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demo_spatiotemporal_det.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state>
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mywork/webcam_demo_ava.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="133" column="79" lean-forward="true" selection-start-line="133" selection-start-column="79" selection-end-line="133" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mmaction/datasets/via3_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="345" column="32" selection-start-line="345" selection-start-column="32" selection-end-line="345" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mmaction/core/evaluation/via3_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="182" column="17" selection-start-line="182" selection-start-column="12" selection-end-line="182" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/long_video_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/webcam_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/detection/ava/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_ava_rgb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="156" column="19" lean-forward="true" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mywork/via3_tool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        <state relative-caret-position="19">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/detection/via3/my_slowfast_kinetics_pretrained_r50_8x8x1_20e_via3_rgb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="407" column="18" lean-forward="true" selection-start-line="407" selection-start-column="18" selection-end-line="407" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mywork/detection2_outvia3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="111" column="34" lean-forward="true" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
+        <state relative-caret-position="307">
+          <caret line="438" column="18" selection-start-line="438" selection-start-column="18" selection-end-line="438" selection-end-column="18" />
         </state>
       </provider>
     </entry>

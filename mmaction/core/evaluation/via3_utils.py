@@ -183,6 +183,8 @@ def via3_eval(results,video_infos, opt_ids,
         for label, bboxes in enumerate(result):
             for bbox in bboxes:
                 box, score = bbox[:4], bbox[4]
+                if score < 0.3:
+                    continue
                 pred_boxes_all[img_key].append(box)
                 pred_labels_all[img_key].append(label)
                 pred_scores_all[img_key].append(score)
